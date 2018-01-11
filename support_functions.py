@@ -1,3 +1,11 @@
+# function to perform cross validation on our model 
+# using the top-100 acuracy instead of the actual 
+# classification accuracy
+def RF_cross_val_top_100(k, n_trees, max_depth):
+    return
+    
+
+
 # Function to lookup the targets of a given compound
 # in the ChEMBL database using their REST API. Returns
 # a list of gene symbols. 
