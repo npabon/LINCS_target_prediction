@@ -4,3 +4,4 @@ checkpoint_files/
 LINCS_ChEMBL_analysis.ipynb
 .ipynb_checkpoints/
 __pycache__/
+features/
