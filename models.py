@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 class LincsRandomForestClassifier(object):
     
-    "WE ASSUME THE DATA IS GROUPED BY CELL LINE AND HAS 4 FEATURES PER CELL LINE"
+    """WE ASSUME THE DATA IS GROUPED BY CELL LINE AND HAS 4 FEATURES PER CELL LINE"""
    
     def __init__(self, n_cells_per_forest, n_estimators_per_forest=10, max_depth=None, max_features="auto", random_state=1):
         self.n_cells_per_forest = n_cells_per_forest
