@@ -8,4 +8,4 @@ A python pipeline for predicting drug targets using the NIH LINCS project's L100
 - **feature_construction.ipynb** : A notebook for using the cleaned L1000 data to construct the actual features used for classification.
 - **classification.ipynb** : A notebook for constructing the training set and training the classifier.
 - **prediction.ipynb** : A notebook for using our trained classifier to predict targets for new drugs.
-- 
+- **LOOCV.ipynb** : A notebook for performing Leave-One-(compound)-Out Cross Validation o n a model.
