@@ -1,7 +1,9 @@
 data/
 checkpoint_files/
+checkpoint_files_old/
 .DS_Store
 LINCS_ChEMBL_analysis.ipynb
 .ipynb_checkpoints/
 __pycache__/
 features/
+results/
