@@ -1,11 +1,17 @@
-# LINCS target prediction
+# Predicting drug targets from gene expression perturbation signatures<br>
 
-A python pipeline for predicting drug targets using the NIH LINCS project's L1000 dataset. This project is under active development, so it's not as clean and well organized as it could be. 
+### (Very) Brief background on drug discovery
 
-- **LINCS_data_prep.ipynb** : A notebook for cleaning raw LINCS L1000 mRNA data and preparing it for feature construction and classification.
-- **STRING_interaction_data_prep.ipynb** : A notebook for cleaning protein-protein interaction data from the String 4.0 database.
-- **data_profiling.ipynb** : A notebook for examining properties of the complete L1000 dataset to determine which data we can use.
-- **feature_construction.ipynb** : A notebook for using the cleaned L1000 data to construct the actual features used for classification.
-- **classification.ipynb** : A notebook for constructing the training set and training the classifier.
-- **prediction.ipynb** : A notebook for using our trained classifier to predict targets for new drugs.
-- **LOOCV.ipynb** : A notebook for performing Leave-One-(compound)-Out Cross Validation o n a model.
+Many medicinal drugs are small molecules that bind to specific proteins in your body and inihibit their function. This can have a variety of network-level effects depending on the target protein. In many cases the disease involves protein interactions that are happening "too much", and the inhibitor, by binding to the protein, has the effect of "slowing down" the interaction or preventing it entirely.
+
+Historically, drugs have been discovered by chance. High throughput screens test thousands of drugs and those that produce the desired outcome in *in-vitro* assays are selected for further development. Often, drugs' specific target protein(s) are not known a-priori, and this can lead to side-effects and toxicity later down the line when the drugs are tested in live animals. Being able to predict which specific proteins a bioactive compound will bind to and inhibit has immense potential to accelerate drug discovery and drug repurposing.
+
+### Leveraging "big data" to predict drug-target interactions
+
+Today we're witnessing an explosion of publicly available biological data through initiatives like the 1000 Genomes Project, The Cancer Genome Atlas, and the NIH's Library of Integrated Network-Based Cellular Signatures (LINCS) Program. The LINCS initiative generates and makes public gene expression data that indicates how different types of cells respond to various genetic and environmental perturbations, including drugs. 
+
+Gene expression regulation in human cells is a complex and noisy process, making it difficult to determine the protein target of a drug by looking at which genes in the cell are up/down regulated as a result of drug treatment. However, here we hypothesize that a cell treated with an small molecule inhibitor for a given protein should produce a similar gene expression profile to that of an untreated cell in which the gene coding for that protein has been silenced.
+
+LINCS contains gene expression profiles for over 20,000 small molecule/drug treatments and over 20,000 gene silencing, or "knockdown" experiments. We know the protein targets of many of the drugs that are tested, and some of these proteins were knocked down in separate experiments. So, we can test our hypothesis by triyng to build a machine learning classifier to predict whether a drug and a protein interact by looking at the gene expression profiles from their corresponding treatment and knockdown experiments.
+
+If our classifier works, we can use it to predict targets for new drugs by comparing the drug's expression profiles against all the knockdown profiles in LINCS.
